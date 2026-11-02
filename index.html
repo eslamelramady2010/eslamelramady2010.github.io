@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eslam Elramady: performance marketing and e-commerce portfolio, with case studies from KSA, UAE, Jordan and Egypt.">
+<meta property="og:title" content="Eslam Elramady Portfolio">
+<title>Eslam Elramady Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,700;112,800;100,600&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: dark title band, then one full-width band per case in that brand's own colours: story + phone gallery + task ledger */
+:root{
+  --bg:#f3f4f6; --surface:#ffffff; --ink:#111318; --muted:#5b616d; --line:#dfe2e7;
+  --hero:#111318; --hero-ink:#f3f4f6; --hero-muted:#a2a8b3;
+  --aw:#7a2fd4; --aw-soft:#efe6fb; --aw-sun:#ffcf33;
+  --lx:#9c7a43; --lx-soft:#f3ece0; --lx-night:#15191d;
+  --display:"Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1013; --surface:#171a1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2a2f37;
+  --hero:#07080a; --hero-ink:#eceef2; --hero-muted:#8f96a3;
+  --aw:#b88cff; --aw-soft:#241838; --aw-sun:#ffd54f;
+  --lx:#d6b27a; --lx-soft:#2a2216; --lx-night:#0b0d0f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1013; --surface:#171a1f; --ink:#eceef2; --muted:#9aa1ad; --line:#2a2f37;
+  --hero:#07080a; --hero-ink:#eceef2; --hero-muted:#8f96a3;
+  --aw:#b88cff; --aw-soft:#241838; --aw-sun:#ffd54f;
+  --lx:#d6b27a; --lx-soft:#2a2216; --lx-night:#0b0d0f; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.in{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink)}
+.hero .in{padding-block:56px 48px;display:flex;flex-direction:column;gap:22px}
+.hero .label{color:var(--hero-muted)}
+.hero h1{font-size:clamp(44px,9vw,96px);font-weight:800;font-stretch:112%;letter-spacing:-.025em;text-transform:uppercase}
+.hero .pitch{font-size:clamp(18px,2.4vw,22px);max-width:58ch;color:var(--hero-muted)}
+.hero .pitch b{color:var(--hero-ink);font-weight:600}
+.contact{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--hero-muted)}
+.contact a{color:var(--hero-ink);text-underline-offset:3px}
+.index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.index a{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:14px;text-decoration:none;border:1px solid #ffffff22;transition:border-color .2s}
+.index a:hover{border-color:#ffffff66}
+.index .big{font-family:var(--display);font-weight:700;font-stretch:112%;font-size:clamp(20px,3vw,28px);line-height:1.05}
+.index small{color:var(--hero-muted);font-size:13.5px}
+.index .k{font-family:var(--mono);font-size:13px}
+#go-aw .k{color:var(--aw-sun)} #go-lx .k{color:#d6b27a}
+
+/* case band */
+.case .in{padding-block:64px;display:flex;flex-direction:column;gap:40px}
+.case-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;align-items:end}
+.case .label{color:var(--tone)}
+.case h2{font-size:clamp(34px,6vw,64px);font-weight:800;font-stretch:112%;letter-spacing:-.02em;text-transform:uppercase;margin-top:10px}
+.case h2 span{display:block;font-size:.42em;font-weight:600;font-stretch:100%;letter-spacing:0;text-transform:none;color:var(--muted);margin-top:12px;line-height:1.25}
+.lede{font-size:17.5px;max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:13px;font-weight:500;padding:4px 11px;border-radius:999px;background:var(--tone-soft);color:var(--tone)}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--tone)}
+.kpi{padding:18px 16px 4px 0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi + .kpi{padding-left:16px;border-left:1px solid var(--line)}
+.kpi .num{font-size:clamp(22px,3vw,30px);color:var(--tone)}
+.kpi small{font-size:13.5px;color:var(--muted);line-height:1.4}
+
+/* phones */
+.gallery{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;margin-inline:-2px}
+.shot{flex:0 0 232px;scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:10px}
+.phone{border-radius:30px;padding:8px;background:var(--device);box-shadow:0 18px 40px -18px #0006}
+.phone img{display:block;width:100%;aspect-ratio:420/840;object-fit:cover;object-position:top;border-radius:23px;background:var(--line)}
+.shot figcaption{font-size:13px;color:var(--muted);line-height:1.4}
+.shot figcaption b{color:var(--ink);font-weight:600;display:block}
+
+/* task ledger */
+.ledger{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.group h3{font-family:var(--body);font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
+.group h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--tone)}
+.group ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.group li{position:relative;padding-left:22px;font-size:15px;line-height:1.5}
+.group li::before{content:"✓";position:absolute;left:0;top:0;color:var(--tone);font-weight:600}
+.ledger-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.ledger-head h3{font-size:clamp(22px,3vw,28px);font-weight:700;font-stretch:112%;text-transform:uppercase}
+
+/* charts and deal */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel svg{width:100%;height:auto;display:block}
+.panel .cap{font-size:13.5px;color:var(--muted)}
+.duo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:14px}
+.mix{display:flex;flex-direction:column;gap:10px}
+.mixrow{display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;align-items:center;font-size:14px}
+.bar{height:12px;border-radius:6px;background:var(--tone)}
+.deal{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;align-items:stretch}
+.deal div{background:var(--tone-soft);border-radius:12px;padding:16px 18px;font-size:15px;line-height:1.45}
+.deal div b{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--tone);margin-bottom:6px;font-weight:500}
+.deal .x{align-self:center;font-family:var(--mono);font-size:22px;color:var(--tone)}
+
+#aw{--tone:var(--aw);--tone-soft:var(--aw-soft);--device:#1c1430}
+#lx{--tone:var(--lx);--tone-soft:var(--lx-soft);--device:var(--lx-night)}
+#lx{background:color-mix(in srgb,var(--lx-soft) 45%,var(--bg))}
+
+
+
+/* catalog band */
+.catalog{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#5a1fb0,#7a2fd4);color:#fff}
+.cat-big{padding:28px;display:flex;flex-direction:column;justify-content:center;gap:6px;background:#0002}
+.cat-big .num{font-size:clamp(56px,8vw,88px);line-height:.9;color:#ffcf33}
+.cat-big small{font-size:14.5px;line-height:1.4;opacity:.9}
+.cat-list{padding:24px 28px;display:flex;flex-direction:column;gap:12px}
+.cat-list .label{color:#fffc}
+.cat-list ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
+.cat-list li{border:1px solid #fff6;border-radius:999px;padding:6px 14px;font-size:14px}
+.cat-list p{font-size:14.5px;line-height:1.5;opacity:.9;margin:0}
+@media (max-width:640px){.catalog{grid-template-columns:minmax(0,1fr)}}
+
+
+/* giveaways */
+.giveaways{background:#15191d;color:#f3ece0;border-radius:18px;padding:clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:24px}
+.giveaways .label{color:#d6b27a}
+.gv-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.gv-head h3{font-size:clamp(22px,3vw,30px);font-weight:700;font-stretch:112%;line-height:1.1;margin:8px 0 10px;color:#fff}
+.gv-head p{font-size:15px;line-height:1.55;color:#f3ece0cc;max-width:62ch;margin:0}
+.gv-stat{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.gv-stat .num{font-size:clamp(48px,7vw,72px);line-height:.9;color:#d6b27a}
+.gv-stat small{font-size:13.5px;color:#f3ece0aa;max-width:16ch}
+.gv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gv{background:#ffffff0d;border:1px solid #ffffff1f;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.gv-img{display:block;aspect-ratio:1}
+.gv-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gv-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+.prize{display:flex;gap:10px;align-items:center}
+.gift{width:40px;height:40px;flex:none;border-radius:10px;background:#d6b27a26;display:grid;place-items:center;font-size:20px}
+.prize b{display:block;font-size:16.5px;color:#fff}
+.prize small{font-size:13.5px;color:#f3ece0aa}
+.gv-foot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #ffffff1f;padding-top:10px;margin-top:auto;font-size:13.5px;color:#f3ece0aa}
+.gv-foot .num{font-size:18px;color:#fff}
+.gv-foot a{color:#d6b27a;text-decoration:none;font-weight:500}
+@media (max-width:860px){.gv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gv-head{grid-template-columns:minmax(0,1fr)}.gv-stat{align-items:flex-start;text-align:left}}
+@media (max-width:560px){.gv-grid{grid-template-columns:minmax(0,1fr)}}
+
+
+/* device mockups */
+.devices{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.stage{position:relative;width:min(100%,900px);display:flex;padding-bottom:6px}
+.laptop{width:calc(100% - 120px)}
+.lid{background:#1b1e22;border-radius:16px 16px 4px 4px;padding:14px 14px 18px;position:relative;box-shadow:0 20px 40px -20px #0006}
+.lid .cam{position:absolute;top:5px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3a3f46}
+.lid img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:3px}
+.base{height:14px;margin:0 -7%;background:linear-gradient(#cfd3d8,#9aa0a7);border-radius:0 0 14px 14px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;width:18%;height:6px;margin-left:-9%;background:#b5bac0;border-radius:0 0 8px 8px}
+.mobile{position:absolute;right:0;bottom:-6px;width:clamp(120px,22%,200px);background:#111;border-radius:28px;padding:8px;box-shadow:0 24px 40px -18px #0008}
+.mobile .notch{position:absolute;top:8px;left:50%;width:36%;height:14px;margin-left:-18%;background:#111;border-radius:0 0 10px 10px;z-index:1}
+.mobile img{display:block;width:100%;aspect-ratio:9/19.5;object-fit:cover;object-position:top;border-radius:21px}
+.devices figcaption{text-align:center;font-size:13px;color:var(--muted)}
+@media (max-width:640px){.laptop{width:calc(100% - 44px)}.mobile{width:30%;border-radius:20px;padding:5px}.mobile img{border-radius:16px}.lid{padding:8px 8px 10px;border-radius:10px 10px 3px 3px}}
+
+
+/* case 04 local */
+:root{--eg:#1f6fb2;--eg-soft:#e3eef8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--eg:#7cb8ec;--eg-soft:#122232}}
+:root[data-theme="dark"]{--eg:#7cb8ec;--eg-soft:#122232}
+#eg{--tone:var(--eg);--tone-soft:var(--eg-soft);background:color-mix(in srgb,var(--eg-soft) 40%,var(--bg))}
+#go-eg .k{color:#7cb8ec}
+.eg-top{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;border-top:2px solid var(--tone);padding-top:16px}
+.eg-top div{display:flex;flex-direction:column;gap:4px}
+.eg-top .num{font-size:clamp(28px,4vw,40px);color:var(--tone)}
+.eg-top small{font-size:14px;color:var(--muted)}
+.lp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.lp{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.lp-img{position:relative;display:block;aspect-ratio:9/16;background:#111}
+.lp-img img{width:100%;height:100%;object-fit:cover;display:block}
+.lp-img:hover .play{background:var(--tone);color:#fff}
+.lp-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.lp-body .label{color:var(--tone);font-size:11px}
+.lp-body p{font-size:13.5px;line-height:1.45}
+.lp-nums{display:flex;flex-wrap:wrap;gap:4px 10px;white-space:nowrap;font-size:12.5px;color:var(--muted);margin-top:auto;border-top:1px solid var(--line);padding-top:8px}
+.lp-nums b{color:var(--ink);font-weight:500}
+.hero .index{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:980px){.lp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero .index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.lp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero .index{grid-template-columns:minmax(0,1fr)}.eg-top{grid-template-columns:minmax(0,1fr)}}
+
+
+/* video lightbox */
+.vbox{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px}
+.vbox[hidden]{display:none}
+.vbox-bg{position:absolute;inset:0;background:#000c}
+.vbox-panel{position:relative;width:min(400px,100%);height:min(720px,calc(100vh - 32px));background:#111;border-radius:16px;overflow:hidden}
+.vbox-panel{display:flex;flex-direction:column}
+.vbox-panel iframe{width:100%;flex:1;border:0;background:#fff}
+.vbox-out{order:2;display:block;padding:12px;text-align:center;color:#fff;background:#111;font-size:14px;text-decoration:none}
+.vbox-x{position:absolute;top:8px;right:8px;z-index:1;width:40px;height:40px;border-radius:50%;border:0;background:#000b;color:#fff;font-size:24px;line-height:1;cursor:pointer}
+
+
+/* services */
+.services .in{padding-block:64px 24px;display:flex;flex-direction:column;gap:22px}
+.services h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;font-stretch:112%;text-transform:uppercase}
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.svc .n{font-size:13px;color:var(--muted)}
+.svc h3{font-family:var(--body);font-size:17.5px;font-weight:600;line-height:1.3}
+.svc p{font-size:14.5px;line-height:1.55}
+.svc .tools{font-size:13px;color:var(--muted)}
+.svc .proof-link{margin-top:auto;padding-top:6px;font-size:14px;font-weight:600;text-decoration:none;color:var(--ink)}
+.svc .proof-link:hover{text-decoration:underline}
+@media (max-width:860px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.svc-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* creators */
+.cstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cstats div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cstats .num{font-size:clamp(24px,3.4vw,34px);color:var(--tone)}
+.cstats small{font-size:13.5px;color:var(--muted);line-height:1.4}
+.creators{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.creator{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.thumb{position:relative;display:block;aspect-ratio:4/5;background:var(--lx-night)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.play{position:absolute;right:12px;bottom:12px;width:38px;height:38px;border-radius:50%;background:#000a;color:#fff;display:grid;place-items:center;font-size:14px;padding-left:2px}
+.thumb:hover .play{background:var(--lx);color:#111}
+.cbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.who{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.flags{display:flex;gap:4px}
+.flag{width:21px;height:14px;border-radius:2px;box-shadow:0 0 0 1px #0002;display:block}
+.creator h4{margin:0;font-family:var(--body);font-size:15.5px;font-weight:600;overflow-wrap:anywhere}
+.note{font-size:13.5px;color:var(--muted);line-height:1.45}
+.cnums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.cnums div{display:flex;flex-direction:column}
+.cnums .num{font-size:18px}
+.cnums small{font-size:12px;color:var(--muted)}
+.cfoot{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.cfoot a{color:var(--tone);font-weight:500;text-decoration:none}
+.fine{font-size:12.5px;color:var(--muted)}
+@media (max-width:860px){.creators{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.creators,.cstats{grid-template-columns:minmax(0,1fr)}}
+
+/* shared approach */
+.approach .in{padding-block:60px 40px;display:flex;flex-direction:column;gap:22px}
+.approach h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;font-stretch:112%;text-transform:uppercase}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.step{border-top:2px solid var(--ink);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.step h3{font-family:var(--body);font-size:15.5px;font-weight:600}
+.step p{font-size:14px;color:var(--muted);line-height:1.5}
+footer .in{padding-block:24px 56px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .case-top,.duo{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .index,.ledger{grid-template-columns:minmax(0,1fr)}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(3){padding-left:0;border-left:0}
+  .deal{grid-template-columns:minmax(0,1fr)}
+  .deal .x{justify-self:center;transform:rotate(90deg)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .shot{flex-basis:200px}
+}
+
+/* hero cta, proof, house of care, experience, skills, talk */
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid #ffffff40;text-decoration:none;font-weight:600;font-size:15px;color:#f3f4f6}
+.btn:hover{border-color:#ffffffaa}
+.btn.primary{background:#ffcf33;border-color:#ffcf33;color:#111318}
+.index{grid-template-columns:repeat(3,minmax(0,1fr))}
+#go-hc .k{color:#7fd6a0}
+.proof{background:var(--surface);border-bottom:1px solid var(--line)}
+.proof .in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.proof .in>div{padding:22px 16px;display:flex;flex-direction:column;gap:4px;border-left:1px solid var(--line);min-width:0}
+.proof .in>div:first-child{border-left:0;padding-left:0}
+.proof .num{font-size:clamp(26px,3.6vw,36px);font-weight:500;line-height:1}
+.proof small{font-size:13.5px;color:var(--muted);line-height:1.4}
+:root{--hc:#2f7d4f;--hc-soft:#e3f1e8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--hc:#7fd6a0;--hc-soft:#13261b}}
+:root[data-theme="dark"]{--hc:#7fd6a0;--hc-soft:#13261b}
+#hc{--tone:var(--hc);--tone-soft:var(--hc-soft);background:color-mix(in srgb,var(--hc-soft) 40%,var(--bg))}
+.exp .in,.skills .in{padding-block:60px 20px;display:flex;flex-direction:column;gap:22px}
+.exp h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;font-stretch:112%;text-transform:uppercase}
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.timeline li{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+.timeline .when{font-size:13.5px;color:var(--muted);padding-top:3px}
+.timeline h3{font-family:var(--body);font-size:17px;font-weight:600;line-height:1.3}
+.timeline .org{color:var(--muted);font-size:14.5px;margin:2px 0 6px}
+.timeline p{font-size:15px}
+.skill-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.skill-grid div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+.skill-grid h3{font-family:var(--body);font-size:14px;font-weight:600;margin-bottom:6px}
+.skill-grid p{font-size:14.5px;color:var(--muted);line-height:1.55}
+.talk{background:var(--hero);color:var(--hero-ink);margin-top:40px}
+.talk .in{padding-block:56px;display:flex;flex-direction:column;gap:16px}
+.talk h2{font-size:clamp(34px,6vw,60px);font-weight:800;font-stretch:112%;text-transform:uppercase}
+.talk p{color:var(--hero-muted);font-size:17px}
+@media (max-width:860px){.index{grid-template-columns:minmax(0,1fr)}.proof .in{grid-template-columns:repeat(2,minmax(0,1fr))}.proof .in>div:nth-child(3){border-left:0;padding-left:0}.proof .in>div:nth-child(n+3){border-top:1px solid var(--line)}.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.timeline li{grid-template-columns:minmax(0,1fr);gap:4px}.skill-grid{grid-template-columns:minmax(0,1fr)}.btn{flex:1 1 auto;justify-content:center}}
+
+
+
+/* sound toggle */
+.snd{position:fixed;right:16px;bottom:16px;z-index:55;display:flex;align-items:center;gap:8px;height:44px;padding:0 16px 0 12px;border-radius:999px;border:1px solid #ffffff2a;background:#111318e6;color:#f3f4f6;font:600 13.5px/1 var(--body);cursor:pointer;box-shadow:0 10px 30px -12px #000a;backdrop-filter:blur(6px);transition:transform .25s,background .25s}
+.snd:hover{transform:translateY(-2px)}
+.snd svg{width:18px;height:18px}
+.snd .bars{display:flex;gap:2px;align-items:flex-end;height:14px}
+.snd .bars i{display:block;width:3px;background:#ffcf33;border-radius:2px;height:4px}
+.snd[aria-pressed="true"] .bars i{animation:eq .9s ease-in-out infinite}
+.snd[aria-pressed="true"] .bars i:nth-child(2){animation-delay:.15s}.snd[aria-pressed="true"] .bars i:nth-child(3){animation-delay:.3s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+.snd[aria-pressed="false"] .bars i{background:#8f96a3}
+@media (prefers-reduced-motion:reduce){.snd .bars i{animation:none!important}}
+
+/* ===== motion ===== */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#ffcf33,#b88cff,#7fd6a0,#7cb8ec);z-index:60;pointer-events:none}
+html.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+html.js .rv.rv-l{transform:translateX(-36px)} html.js .rv.rv-r{transform:translateX(36px)} html.js .rv.rv-s{transform:scale(.94)}
+html.js .rv.in-view{opacity:1;transform:none}
+/* hero intro */
+html.js .hero h1{overflow:hidden}
+html.js .hero h1 .ln{display:block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+html.js .hero h1 .ln:nth-child(2){animation-delay:.12s}
+html.js .hero .label,html.js .hero .pitch,html.js .hero .contact,html.js .hero .cta,html.js .hero .index a{opacity:0;animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) forwards}
+html.js .hero .label{animation-delay:.05s} html.js .hero .pitch{animation-delay:.35s} html.js .hero .contact{animation-delay:.45s} html.js .hero .cta{animation-delay:.55s}
+html.js .hero .index a:nth-child(1){animation-delay:.65s} html.js .hero .index a:nth-child(2){animation-delay:.75s} html.js .hero .index a:nth-child(3){animation-delay:.85s} html.js .hero .index a:nth-child(4){animation-delay:.95s}
+@keyframes rise{to{transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:60vmax;height:60vmax;right:-20vmax;top:-30vmax;border-radius:50%;background:radial-gradient(closest-side,#7a2fd455,transparent);animation:drift 14s ease-in-out infinite alternate;pointer-events:none}
+.hero::after{content:"";position:absolute;width:50vmax;height:50vmax;left:-25vmax;bottom:-35vmax;border-radius:50%;background:radial-gradient(closest-side,#2f7d4f44,transparent);animation:drift 18s ease-in-out infinite alternate-reverse;pointer-events:none}
+.hero .in{position:relative;z-index:1}
+@keyframes drift{to{transform:translate(-8vmax,6vmax) scale(1.15)}}
+/* hover: buttons & nav cards */
+.btn{transition:transform .25s,background .25s,border-color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px #ffcf3399}
+.index a{transition:transform .3s,border-color .3s,background .3s}
+.index a:hover{transform:translateY(-4px);background:#ffffff0d}
+.index a .big{transition:letter-spacing .3s}
+.index a:hover .big{letter-spacing:.01em}
+/* hover: cards lift */
+.kpi,.group,.panel,.creator,.gv,.lp,.svc,.cstats div,.shot,.step,.proof .in>div{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+.group:hover,.creator:hover,.gv:hover,.lp:hover,.svc:hover,.panel:hover{transform:translateY(-6px);box-shadow:0 18px 40px -22px #0007;border-color:var(--tone,var(--ink))}
+.svc:hover{border-color:var(--ink)}
+.kpi:hover,.cstats div:hover,.proof .in>div:hover{transform:translateY(-3px)}
+.step:hover{transform:translateY(-4px)}
+/* image zoom inside cards */
+.thumb,.lp-img,.gv-img,.phone,.lid{overflow:hidden}
+.thumb img,.lp-img img,.gv-img img,.shot img,.lid img{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s}
+.creator:hover .thumb img,.lp:hover .lp-img img,.gv:hover .gv-img img,.shot:hover img{transform:scale(1.07)}
+.play{transition:transform .3s,background .3s}
+.creator:hover .play,.lp:hover .play{transform:scale(1.15)}
+.lp .play{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #ffffff55}50%{box-shadow:0 0 0 10px #ffffff00}}
+/* services number + arrow */
+.svc .n{transition:color .3s}
+.svc:hover .n{color:var(--ink)}
+.proof-link{transition:letter-spacing .3s}
+.svc:hover .proof-link{letter-spacing:.02em}
+/* ledger checks pop */
+html.js .group.in-view li{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
+html.js .group.in-view li:nth-child(2){animation-delay:.08s} html.js .group.in-view li:nth-child(3){animation-delay:.16s} html.js .group.in-view li:nth-child(4){animation-delay:.24s}
+/* bars grow */
+html.js .bar{transform-origin:0 50%;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .2s}
+html.js .in-view .bar,html.js .bar.in-view{transform:none}
+/* devices float */
+.devices .mobile{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.devices .laptop{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.devices:hover .laptop{transform:perspective(1200px) rotateX(3deg) translateY(-4px)}
+/* chips */
+.chip{transition:transform .2s,background .2s}
+.chip:hover{transform:translateY(-2px)}
+/* talk */
+.talk h2{background:linear-gradient(90deg,#fff,#ffcf33,#b88cff,#fff);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 8s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+/* lightbox */
+.vbox:not([hidden]) .vbox-bg{animation:fadeIn .25s ease both}
+.vbox:not([hidden]) .vbox-panel{animation:popIn .35s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fadeIn{from{opacity:0}} @keyframes popIn{from{opacity:0;transform:scale(.9) translateY(20px)}}
+@media (prefers-reduced-motion:reduce){
+  html.js .rv,html.js .hero h1 .ln,html.js .hero .label,html.js .hero .pitch,html.js .hero .contact,html.js .hero .cta,html.js .hero .index a,html.js .group.in-view li{opacity:1!important;transform:none!important;animation:none!important}
+  .hero::before,.hero::after,.devices .mobile,.lp .play,.talk h2{animation:none!important}
+  html.js .bar{transform:none}
+  *{transition:none!important}
+}
+
+</style>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="in">
+    <span class="label">Portfolio · GCC e-commerce &amp; performance marketing</span>
+    <h1><span class="ln">Eslam</span><span class="ln">Elramady</span></h1>
+    <p class="pitch"><b>Performance Marketing &amp; E-Commerce Specialist.</b> I build a brand's digital sales channel from zero (store, social, paid media, payments) and scale it on what the numbers say.</p>
+    <div class="contact">
+      <span>Alexandria, Egypt · open to KSA / UAE</span>
+      <span class="num">+20 104 434 4356</span>
+      <span>eslamelramady2010@gmail.com</span>
+      <a href="https://www.linkedin.com/in/eslamelramady" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://www.behance.net/eslamelramady" target="_blank" rel="noopener">Behance ↗</a>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="mailto:eslamelramady2010@gmail.com">Email me</a>
+      <a class="btn" href="https://wa.me/201044344356" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <nav class="index" aria-label="Case studies">
+      <a href="#aw" id="go-aw"><span class="k">01 · Riyadh · 2022–2025</span><span class="big">Adventure World</span><small>Game rentals &amp; events · ≈ SAR 1.5M sales in six months</small></a>
+      <a href="#lx" id="go-lx"><span class="k">02 · UAE · 2023–2025</span><span class="big">Luxuria Rent Car</span><small>Car rental · 200-car fleet full in peak seasons</small></a>
+      <a href="#hc" id="go-hc"><span class="k">03 · Jordan → KSA · 2026–now</span><span class="big">House of Care</span><small>Healthy food · 150+ product Shopify store</small></a>
+      <a href="#eg" id="go-eg"><span class="k">04 · Alexandria · 2025–2026</span><span class="big">Local brands</span><small>Fashion, food, sports &amp; retail · video content</small></a>
+    </nav>
+  </div>
+</section>
+
+<section class="proof" aria-label="Highlights">
+  <div class="in">
+    <div><span class="num">≈ 1.5M</span><small>SAR in sales in six months, Adventure World</small></div>
+    <div><span class="num">20×</span><small>ROAS on peak campaigns</small></div>
+    <div><span class="num">5.7M+</span><small>views on creator reels, Luxuria</small></div>
+    <div><span class="num">150+</span><small>products launched on Shopify, House of Care</small></div>
+  </div>
+</section>
+
+
+<!-- CASE 01 -->
+<section class="case" id="aw">
+  <div class="in">
+    <div class="case-top">
+      <div>
+        <span class="label">Case 01 · Riyadh, KSA · Nov 2022 – Jun 2025</span>
+        <h2>Adventure World<span>From no online presence to ≈ SAR 1.5M in sales in six months</span></h2>
+        <div class="chips"><span class="chip">Game rentals &amp; events</span><span class="chip">B2C + B2B</span><span class="chip">Built from zero</span></div>
+      </div>
+      <p class="lede">Adventure World (عالم المغامرة) rents bouncy castles, electric trains, hospitality carts and full event setups across Riyadh. When I joined it had no store and no social presence. I built both and made them the company's main booking channel.</p>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><span class="num">≈ 1M</span><small>SAR sales in Year 2</small></div>
+      <div class="kpi"><span class="num">≈ 1.5M</span><small>SAR sales in the first half of Year 3</small></div>
+      <div class="kpi"><span class="num">up to 20×</span><small>ROAS on the strongest campaigns</small></div>
+      <div class="kpi"><span class="num">3,000+</span><small>SAR average order; single event orders up to SAR 75,000</small></div>
+    </div>
+
+
+    <div class="catalog">
+      <div class="cat-big"><span class="num">200+</span><small>games &amp; products listed, photographed and written by me</small></div>
+      <div class="cat-list">
+        <span class="label">What the catalog covers</span>
+        <ul><li>Bouncy castles &amp; inflatables</li><li>Electric trains</li><li>Hospitality carts</li><li>Full event setups</li></ul>
+        <p>Each listing built for search and checkout: categories, SEO copy, product photos and Tabby / Tamara instalments.</p>
+      </div>
+    </div>
+
+    <div class="gallery" aria-label="Adventure World screenshots">
+      <figure class="shot"><div class="phone"><img src="img/aw-store.jpg" alt="Adventure World online store home page on mobile" loading="lazy"></div><figcaption><b>Online store</b>Theme, layout and bilingual home page</figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/aw-products.jpg" alt="Adventure World category page with hospitality carts and daily rental prices" loading="lazy"></div><figcaption><b>Product listings</b>Own photography, daily rental pricing, WhatsApp ordering</figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/aw-instagram.jpg" alt="Adventure World verified Instagram profile with 17.9K followers" loading="lazy"></div><figcaption><b>Instagram</b>Verified account, 17.9K followers, branded highlights</figcaption></figure>
+    </div>
+
+    <div class="duo">
+      <div class="panel">
+        <span class="label">Sales by period · approx. SAR</span>
+        <svg viewBox="0 0 560 220" role="img" aria-label="Sales: about 20 thousand riyals in Year 1, about 1 million in Year 2, about 1.5 million in the first half of Year 3">
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)">
+            <line x1="56" y1="180" x2="550" y2="180" stroke="var(--line)"/>
+            <line x1="56" y1="125" x2="550" y2="125" stroke="var(--line)" stroke-dasharray="3 4"/>
+            <line x1="56" y1="70" x2="550" y2="70" stroke="var(--line)" stroke-dasharray="3 4"/>
+            <line x1="56" y1="15" x2="550" y2="15" stroke="var(--line)" stroke-dasharray="3 4"/>
+            <text x="48" y="184" text-anchor="end">0</text><text x="48" y="129" text-anchor="end">0.5M</text><text x="48" y="74" text-anchor="end">1.0M</text><text x="48" y="19" text-anchor="end">1.5M</text>
+          </g>
+          <!-- 110px per SAR 1M, baseline 180 -->
+          <rect x="96" y="177.8" width="110" height="2.2" fill="var(--aw)" opacity=".5"/>
+          <rect x="246" y="70" width="110" height="110" rx="4" fill="var(--aw)" opacity=".7"/>
+          <rect x="396" y="15" width="110" height="165" rx="4" fill="var(--aw)"/>
+          <g font-family="IBM Plex Mono, monospace" font-size="13" text-anchor="middle" fill="var(--ink)">
+            <text x="151" y="168">≈ 20K</text><text x="301" y="62">≈ 1M</text><text x="451" y="38" fill="var(--surface)">≈ 1.5M</text>
+          </g>
+          <g font-family="Figtree, system-ui, sans-serif" font-size="12.5" text-anchor="middle" fill="var(--muted)">
+            <text x="151" y="202">Year 1 · build</text><text x="301" y="202">Year 2 · 12 months</text><text x="451" y="202">Year 3 · 6 months</text>
+          </g>
+        </svg>
+        <p class="cap">Year 1 was a short setup period with no campaigns. In Year 2 monthly sales climbed from about SAR 30K to 50K to 70K, then passed SAR 100K. The best month reached about SAR 500K.</p>
+      </div>
+      <div class="panel">
+        <span class="label">Ad budget · ≈ SAR 15K / month</span>
+        <div class="mix">
+          <div class="mixrow"><span>Google</span><div class="bar" style="width:100%"></div></div>
+          <div class="mixrow"><span>Snapchat</span><div class="bar" style="width:46%;opacity:.8"></div></div>
+          <div class="mixrow"><span>Instagram</span><div class="bar" style="width:34%;opacity:.6"></div></div>
+          <div class="mixrow"><span>TikTok</span><div class="bar" style="width:20%;opacity:.4"></div></div>
+        </div>
+        <p class="cap">Half the budget on Google Search to catch people already looking for rentals and event setups in Riyadh. The rest ranked Snapchat, Instagram, then TikTok in the final period. Bars after Google show order of spend, not exact shares.</p>
+      </div>
+    </div>
+
+    <div class="ledger-head"><h3>What I executed</h3><span class="label">Hands-on, end to end</span></div>
+    <div class="ledger">
+      <div class="group"><h3>E-commerce store</h3><ul>
+        <li>Built the online store from scratch: theme, page structure and category tree.</li>
+        <li>Wrote and published every product listing, with on-page SEO for titles, descriptions and categories.</li>
+        <li>Photographed the products and designed all store banners and graphics.</li>
+        <li>Integrated payment gateways plus Tabby and Tamara so large event bookings could be paid in instalments.</li>
+      </ul></div>
+      <div class="group"><h3>Brand &amp; social</h3><ul>
+        <li>Created the visual identity and the content plan used across all channels.</li>
+        <li>Got the Instagram account verified.</li>
+        <li>Designed every highlight: customer photos, certificates, contests, new games, booths, official events and VIP.</li>
+        <li>Ran contests to grow the audience and collect customer content.</li>
+      </ul></div>
+      <div class="group"><h3>Paid media</h3><ul>
+        <li>Planned and managed a budget of about SAR 15K a month across four platforms.</li>
+        <li>Ran Google Search as the main channel for high-intent rental searches.</li>
+        <li>Ran Snapchat and Instagram for reach and seasonal demand; added TikTok in the final period.</li>
+        <li>Optimized for bookings rather than clicks, which the SAR 3,000+ order value made highly profitable.</li>
+      </ul></div>
+      <div class="group"><h3>Growth &amp; reporting</h3><ul>
+        <li>Took monthly sales from about SAR 30K to over SAR 100K within Year 2.</li>
+        <li>Scaled into event seasons, with single orders reaching SAR 75,000.</li>
+        <li>Tracked sales and ROAS by channel to decide where the next riyal went.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 02 -->
+<section class="case" id="lx">
+  <div class="in">
+    <div class="case-top">
+      <div>
+        <span class="label">Case 02 · UAE · Late 2023 – mid 2025</span>
+        <h2>Luxuria Rent Car<span>Filling a 200-car fleet with creators and community</span></h2>
+        <div class="chips"><span class="chip">Car rental</span><span class="chip">Economy to luxury</span><span class="chip">Built from zero</span></div>
+      </div>
+      <p class="lede">Luxuria rents economy, mid-range and luxury cars in the UAE, a market where customers come from dozens of nationalities. I launched the brand online from nothing and made Instagram and creator partnerships its main growth engine.</p>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><span class="num">~200</span><small>Cars booked to full capacity in peak seasons</small></div>
+      <div class="kpi"><span class="num">5–7×</span><small>ROAS in peak seasons</small></div>
+      <div class="kpi"><span class="num">≈ 20K</span><small>AED monthly social budget</small></div>
+      <div class="kpi"><span class="num">29.6K</span><small>Instagram followers on a verified account</small></div>
+    </div>
+
+    <div class="gallery" aria-label="Luxuria screenshots">
+      <figure class="shot"><div class="phone"><img src="img/lx-instagram.jpg" alt="Luxuria verified Instagram profile with 29.6K followers and car category highlights" loading="lazy"></div><figcaption><b>Instagram</b>Verified, 29.6K followers, highlights as a car menu</figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/lx-site.jpg" alt="Luxuria website listing a Land Rover with daily, weekly and monthly prices" loading="lazy"></div><figcaption><b>Booking site</b>Daily, weekly and monthly rates per car</figcaption></figure>
+    </div>
+
+    <div class="panel">
+      <span class="label">The creator deal I structured</span>
+      <div class="deal">
+        <div><b>Luxuria gives</b>A car for about a week</div>
+        <span class="x" aria-hidden="true">⇄</span>
+        <div><b>The creator gives</b>A set of Reels and Stories with the car, mentioning Luxuria</div>
+      </div>
+      <p class="cap">For the strongest videos we ran partnership ads, paying to promote the creator's own post. Cash cost stayed low, and each creator brought the cars to their own community.</p>
+    </div>
+
+
+    <div class="ledger-head"><h3>Creator campaigns</h3><span class="label">Six nationalities, one brand</span></div>
+    <div class="cstats">
+      <div><span class="num">5.7M+</span><small>views across five creator reels</small></div>
+      <div><span class="num">135K+</span><small>likes across the six reels</small></div>
+      <div><span class="num">6</span><small>nationalities reached: Moroccan, Egyptian, Russian, Indian, Emirati, Iranian</small></div>
+    </div>
+    <div class="creators">
+      <article class="creator">
+        <a class="thumb" href="https://www.instagram.com/reel/DFIjQjBSrF8/" target="_blank" rel="noopener" aria-label="Watch the dubaibillionaires.official reel on Instagram"><img src="img/cr1.jpg" alt="Still from the dubaibillionaires.official reel for Luxuria" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+        <div class="cbody">
+          <div class="who"><span class="flags"><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="Morocco"><title>Morocco</title><rect width="3" height="2" fill="#c1272d"/><path d="M1.5 .55l.2.62h.66l-.53.38.2.62-.53-.38-.53.38.2-.62-.53-.38h.66z" fill="none" stroke="#006233" stroke-width=".09"/></svg></span><span class="nat">Moroccan</span></div>
+          <h4>@dubaibillionaires.official</h4>
+          <p class="note">Street interview; iPhone 16 giveaway and Tabby / Tamara offer</p>
+          <div class="cnums"><div><span class="num">1.1M</span><small>views</small></div><div><span class="num">77.6K</span><small>likes</small></div><div><span class="num">561</span><small>comments</small></div></div>
+          <div class="cfoot"><span>Jan 2025</span><a href="https://www.instagram.com/reel/DFIjQjBSrF8/" target="_blank" rel="noopener">Watch reel ↗</a></div>
+        </div>
+      </article>
+      <article class="creator">
+        <a class="thumb" href="https://www.instagram.com/reel/DGhu90xxyne/" target="_blank" rel="noopener" aria-label="Watch the Luxuria customer reel on Instagram"><img src="img/cr2.jpg" alt="Still from the Luxuria customer reel for Luxuria" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+        <div class="cbody">
+          <div class="who"><span class="flags"><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="Egypt"><title>Egypt</title><rect width="3" height=".667" fill="#ce1126"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#000"/><circle cx="1.5" cy="1" r=".18" fill="#c09300"/></svg><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="Russia"><title>Russia</title><rect width="3" height=".667" fill="#fff"/><rect y=".667" width="3" height=".667" fill="#0039a6"/><rect y="1.333" width="3" height=".667" fill="#d52b1e"/></svg></span><span class="nat">Egyptian · Russian</span></div>
+          <h4>Customer review on @luxuria_uae</h4>
+          <p class="note">Customer feedback reel, promoted as an ad</p>
+          <div class="cnums"><div><span class="num">1.1M</span><small>views</small></div><div><span class="num">225</span><small>likes</small></div><div><span class="num">4</span><small>comments</small></div></div>
+          <div class="cfoot"><span>Feb 2025</span><a href="https://www.instagram.com/reel/DGhu90xxyne/" target="_blank" rel="noopener">Watch reel ↗</a></div>
+        </div>
+      </article>
+      <article class="creator">
+        <a class="thumb" href="https://www.instagram.com/reel/DH0LvmyScqF/" target="_blank" rel="noopener" aria-label="Watch the danielgeorge404 reel on Instagram"><img src="img/cr3.jpg" alt="Still from the danielgeorge404 reel for Luxuria" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+        <div class="cbody">
+          <div class="who"><span class="flags"><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="India"><title>India</title><rect width="3" height=".667" fill="#ff9933"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#138808"/><circle cx="1.5" cy="1" r=".2" fill="none" stroke="#000080" stroke-width=".06"/></svg></span><span class="nat">Indian</span></div>
+          <h4>@danielgeorge404</h4>
+          <p class="note">Collab post with the creator</p>
+          <div class="cnums"><div><span class="num">1M</span><small>views</small></div><div><span class="num">15.1K</span><small>likes</small></div><div><span class="num">791</span><small>comments</small></div></div>
+          <div class="cfoot"><span>Mar 2025</span><a href="https://www.instagram.com/reel/DH0LvmyScqF/" target="_blank" rel="noopener">Watch reel ↗</a></div>
+        </div>
+      </article>
+      <article class="creator">
+        <a class="thumb" href="https://www.instagram.com/reel/DLc6fewvV-M/" target="_blank" rel="noopener" aria-label="Watch the twins.dubai reel on Instagram"><img src="img/cr4.jpg" alt="Still from the twins.dubai reel for Luxuria" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+        <div class="cbody">
+          <div class="who"><span class="flags"><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="UAE"><title>UAE</title><rect width="3" height=".667" fill="#00732f"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#000"/><rect width=".8" height="2" fill="#ff0000"/></svg><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="Egypt"><title>Egypt</title><rect width="3" height=".667" fill="#ce1126"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#000"/><circle cx="1.5" cy="1" r=".18" fill="#c09300"/></svg></span><span class="nat">Emirati · Egyptian</span></div>
+          <h4>@twins.dubai</h4>
+          <p class="note">Skit filmed at the Luxuria branch</p>
+          <div class="cnums"><div><span class="num">648K</span><small>views</small></div><div><span class="num">7.9K</span><small>likes</small></div><div><span class="num">360</span><small>comments</small></div></div>
+          <div class="cfoot"><span>Jun 2025</span><a href="https://www.instagram.com/reel/DLc6fewvV-M/" target="_blank" rel="noopener">Watch reel ↗</a></div>
+        </div>
+      </article>
+      <article class="creator">
+        <a class="thumb" href="https://www.instagram.com/reel/DRrt57cDcPd/" target="_blank" rel="noopener" aria-label="Watch the Ahmed Shiba reel on Instagram"><img src="img/cr5.jpg" alt="Still from the Ahmed Shiba reel for Luxuria" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+        <div class="cbody">
+          <div class="who"><span class="flags"><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="Egypt"><title>Egypt</title><rect width="3" height=".667" fill="#ce1126"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#000"/><circle cx="1.5" cy="1" r=".18" fill="#c09300"/></svg></span><span class="nat">Egyptian</span></div>
+          <h4>Ahmed Shiba · singer</h4>
+          <p class="note">Celebrity drive in a Luxuria car</p>
+          <div class="cnums"><div><span class="num">—</span><small>views</small></div><div><span class="num">19</span><small>likes</small></div><div><span class="num">1</span><small>comments</small></div></div>
+          <div class="cfoot"><span>Nov 2025</span><a href="https://www.instagram.com/reel/DRrt57cDcPd/" target="_blank" rel="noopener">Watch reel ↗</a></div>
+        </div>
+      </article>
+      <article class="creator">
+        <a class="thumb" href="https://www.instagram.com/reel/DSz42l6jEBS/" target="_blank" rel="noopener" aria-label="Watch the sevdafreestyle reel on Instagram"><img src="img/cr6.jpg" alt="Still from the sevdafreestyle reel for Luxuria" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+        <div class="cbody">
+          <div class="who"><span class="flags"><svg class="flag" viewBox="0 0 3 2" role="img" aria-label="Iran"><title>Iran</title><rect width="3" height=".667" fill="#239f40"/><rect y=".667" width="3" height=".667" fill="#fff"/><rect y="1.333" width="3" height=".667" fill="#da0000"/></svg></span><span class="nat">Iranian</span></div>
+          <h4>@sevdafreestyle</h4>
+          <p class="note">Freestyle football challenge with a Luxuria car</p>
+          <div class="cnums"><div><span class="num">1.9M</span><small>views</small></div><div><span class="num">34.2K</span><small>likes</small></div><div><span class="num">209</span><small>comments</small></div></div>
+          <div class="cfoot"><span>Dec 2025</span><a href="https://www.instagram.com/reel/DSz42l6jEBS/" target="_blank" rel="noopener">Watch reel ↗</a></div>
+        </div>
+      </article>
+    </div>
+    <p class="fine">Views as reported by the creators; likes and comments as shown on Instagram in October 2026. "—" means the view count was not available.</p>
+
+    <div class="giveaways">
+      <div class="gv-head">
+        <div>
+          <span class="label">Contests &amp; giveaways</span>
+          <h3>Prizes people wanted, mechanics that spread the brand</h3>
+          <p>Seasonal giveaways around Ramadan and the year-end. Entry was simple: follow the account and tag five friends, so every entry put Luxuria in front of new people. The contests drove a clear jump in followers and engagement, and that audience fed bookings.</p>
+        </div>
+        <div class="gv-stat"><span class="num">≈ 8K</span><small>comments across three giveaways</small></div>
+      </div>
+      <div class="gv-grid">
+        <article class="gv">
+          <a class="gv-img" href="https://www.instagram.com/p/DGrLdXvis2M/" aria-label="Play the Ramadan giveaway post on Instagram"><img src="img/gv1.jpg" alt="Ramadan giveaway post for Luxuria" loading="lazy"></a>
+          <div class="gv-body">
+            <span class="label">Ramadan giveaway · Mar 2025</span>
+            <div class="prize"><span class="gift" aria-hidden="true">🎁</span><div><b>iPhone 16</b><small>+ BMW rental for 3 days</small></div></div>
+            <div class="gv-foot"><span><span class="num">7.3K</span> comments</span><a href="https://www.instagram.com/p/DGrLdXvis2M/" target="_blank" rel="noopener">View post ↗</a></div>
+          </div>
+        </article>
+        <article class="gv">
+          <a class="gv-img" href="https://www.instagram.com/p/DCg4VSsIwjM/" aria-label="Play the Luxury giveaway post on Instagram"><img src="img/gv2.jpg" alt="Luxury giveaway post for Luxuria" loading="lazy"></a>
+          <div class="gv-body">
+            <span class="label">Luxury giveaway · Nov 2024</span>
+            <div class="prize"><span class="gift" aria-hidden="true">🎁</span><div><b>Land Rover Defender</b><small>rental for 3 days</small></div></div>
+            <div class="gv-foot"><span><span class="num">246</span> comments</span><a href="https://www.instagram.com/p/DCg4VSsIwjM/" target="_blank" rel="noopener">View post ↗</a></div>
+          </div>
+        </article>
+        <article class="gv">
+          <a class="gv-img" href="https://www.instagram.com/p/DDo2C9jtymG/" aria-label="Play the Year-end giveaway post on Instagram"><img src="img/gv3.jpg" alt="Year-end giveaway post for Luxuria" loading="lazy"></a>
+          <div class="gv-body">
+            <span class="label">Year-end giveaway · Dec 2024</span>
+            <div class="prize"><span class="gift" aria-hidden="true">🎁</span><div><b>Chevrolet Corvette</b><small>rental for 3 days</small></div></div>
+            <div class="gv-foot"><span><span class="num">411</span> comments</span><a href="https://www.instagram.com/p/DDo2C9jtymG/" target="_blank" rel="noopener">View post ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="ledger-head"><h3>What I executed</h3><span class="label">Hands-on, end to end</span></div>
+    <div class="ledger">
+      <div class="group"><h3>Brand &amp; social</h3><ul>
+        <li>Built the brand's social identity and content plan from zero.</li>
+        <li>Got the Instagram account verified and grew it to 29.6K followers.</li>
+        <li>Organized highlights as a sales menu: economy, mid-range and luxury cars, the Fazaa discount, services and contact.</li>
+      </ul></div>
+      <div class="group"><h3>Influencer program</h3><ul>
+        <li>Recruited creators from different nationalities to reach each community in the UAE's mixed market.</li>
+        <li>Designed the barter structure: a car for a week in exchange for Reels, Stories and a mention.</li>
+        <li>Ran partnership ads on the best creator videos; four reels passed 1M views each.</li>
+      </ul></div>
+      <div class="group"><h3>Community &amp; acquisition</h3><ul>
+        <li>Ran contests and giveaways to build a customer base fast, which fed directly into bookings.</li>
+        <li>Ran Instagram ads on a budget of about AED 20K a month, concentrated in peak seasons.</li>
+      </ul></div>
+      <div class="group"><h3>Conversion</h3><ul>
+        <li>Integrated payment gateways plus Tabby and Tamara for weekly and monthly rentals.</li>
+        <li>Kept the fleet full in peak seasons, with mid-range cars renting at about AED 3,000 a week.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CASE 03 -->
+<section class="case" id="hc">
+  <div class="in">
+    <div class="case-top">
+      <div>
+        <span class="label">Case 03 · Jordan → KSA · Apr 2026 – now</span>
+        <h2>House of Care<span>A 150+ product Shopify store, built for launch and for the Saudi market</span></h2>
+        <div class="chips"><span class="chip">Healthy food DTC</span><span class="chip">Shopify</span><span class="chip">Currently in launch</span></div>
+      </div>
+      <p class="lede">House of Care is a Jordanian healthy-food brand with six years of history that sells online only. I own the online store and its launch: building the Shopify store, getting the product data right, setting up WhatsApp ordering and planning the first ad campaigns. Next comes Saudi Arabia, added as a second market on the same store.</p>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><span class="num">150+</span><small>products listed and audited</small></div>
+      <div class="kpi"><span class="num">18</span><small>collections structured for browsing and SEO</small></div>
+      <div class="kpi"><span class="num">14</span><small>nutrition fields per product, stored as metafields</small></div>
+      <div class="kpi"><span class="num">2</span><small>markets: Jordan live, KSA via Shopify Markets</small></div>
+    </div>
+
+    <figure class="devices" aria-label="houseofcarejo.com on desktop and mobile">
+      <div class="stage"><div class="laptop">
+        <div class="lid"><div class="cam"></div><img src="img/hc-desktop.jpg" alt="House of Care store homepage on desktop: Arabic navigation, search and a matcha offer banner" loading="lazy"></div>
+        <div class="base"></div>
+      </div>
+      <div class="mobile"><div class="notch"></div><img src="img/hc-mobile.jpg" alt="House of Care store on mobile: matcha offer, free-delivery bar and product badges" loading="lazy"></div></div>
+      <figcaption>houseofcarejo.com, Arabic right-to-left storefront on Shopify</figcaption>
+    </figure>
+
+    <div class="ledger-head"><h3>What I executed</h3><span class="label">Store, data, conversion, launch</span></div>
+    <div class="ledger">
+      <div class="group"><h3>Store build</h3><ul>
+        <li>Built houseofcarejo.com on Shopify: catalogue, 18 collections, navigation and policy pages.</li>
+        <li>Set up shipping rules and offers, including free delivery over 30 JOD.</li>
+        <li>Wrote custom Liquid sections for the product page: an Arabic right-to-left Nutrition Facts table and a NutriScore badge.</li>
+      </ul></div>
+      <div class="group"><h3>Product data &amp; quality</h3><ul>
+        <li>Stored 14 nutrition fields for each product as metafields, so the product pages fill themselves.</li>
+        <li>Ran a full pre-launch audit and fixed the blockers: zero prices, leftover demo content, broken links and policy gaps.</li>
+        <li>Checked every live product page on desktop and mobile after each fix.</li>
+      </ul></div>
+      <div class="group"><h3>Conversion &amp; messaging</h3><ul>
+        <li>Set up a WhatsApp chatbot that answers Click-to-WhatsApp ad leads and sends order updates.</li>
+        <li>Planned a second WhatsApp number for broadcast campaigns to customer lists.</li>
+      </ul></div>
+      <div class="group"><h3>Launch &amp; growth</h3><ul>
+        <li>Planned the first Meta campaigns: Sales objective with broad targeting, then retargeting from week two.</li>
+        <li>Produced pre-launch content, including AI-generated product videos with Arabic voiceover.</li>
+        <li>Prepared the Saudi entry: market research, keyword research and Shopify Markets on the existing store.</li>
+      </ul></div>
+    </div>
+    <p class="fine">The store has just launched, so there are no sales figures to show yet. This case is about the build.</p>
+  </div>
+</section>
+
+
+<!-- CASE 04 -->
+<section class="case" id="eg">
+  <div class="in">
+    <div class="case-top">
+      <div>
+        <span class="label">Case 04 · Alexandria, Egypt · 2025–2026</span>
+        <h2>Local brands<span>Video content for fashion, food, sports and retail brands in Alexandria</span></h2>
+        <div class="chips"><span class="chip">Fashion retail</span><span class="chip">Food</span><span class="chip">Sports &amp; fitness</span><span class="chip">Retail destination</span><span class="chip">Reels &amp; social posts</span></div>
+      </div>
+      <p class="lede">Alongside my GCC work, I create video content for local businesses in Alexandria: Moi et Moi, Tant Bakiza, Medal Swimming Academy, GP Sports Complex (home of the Real Madrid Foundation and Guru Basketball academies) and Tram District. Each video speaks to one clear audience, from mothers booking a trial session to women looking for a private place to swim in the sea.</p>
+    </div>
+    <div class="eg-top">
+      <div><span class="num">604K</span><small>views on the Medal sea-training reel, with 6.2K likes and 3.1K comments</small></div>
+      <div><span class="num">5</span><small>local brands: fashion, food, swimming, multi-sport and a retail destination</small></div>
+    </div>
+    <div class="lp-grid">
+        <article class="lp">
+          <a class="lp-img" href="https://www.facebook.com/reel/2914859412215007" aria-label="Play the Moi et Moi video"><img src="img/eg-moi.jpg" alt="Still from a Moi et Moi video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">Moi et Moi</span>
+            <p>A first tour of the Moi et Moi Smouha store, shot as a fashion reel</p>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.facebook.com/reel/1756352108900437" aria-label="Play the Tram District video"><img src="img/eg-tram2.jpg" alt="Still from a Tram District video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">Tram District</span>
+            <p>A presenter-led welcome to Tram District and what it offers</p>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.facebook.com/reel/1688790968869676" aria-label="Play the Tram District video"><img src="img/eg-tram.jpg" alt="Still from a Tram District video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">Tram District</span>
+            <p>Retail spaces inside restored trams, pitched to brands looking for a location</p>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.instagram.com/p/DbTiOQYsHnc/" aria-label="Play the Medal Swimming Academy video"><img src="img/eg-medal-sea.jpg" alt="Still from a Medal Swimming Academy video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">Medal Swimming Academy</span>
+            <p>Sea Training at Nadi El Seid, a private weekly sea session for women</p><div class="lp-nums"><span><b class="num">604K</b> views</span><span><b class="num">6.2K</b> likes</span><span><b class="num">3.1K</b> comments</span></div>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.instagram.com/p/DbJS2-hsFd-/" aria-label="Play the Medal Swimming Academy video"><img src="img/eg-medal-pool.jpg" alt="Still from a Medal Swimming Academy video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">Medal Swimming Academy</span>
+            <p>“From first training to first medal”, a story post for women swimmers</p>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.instagram.com/reel/DbL1KJfMW6M/" aria-label="Play the GP Sports Complex video"><img src="img/eg-gp-rm.jpg" alt="Still from a GP Sports Complex video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">GP Sports Complex</span>
+            <p>Real Madrid Foundation academy at GPS: world-class method, book a trial</p>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.instagram.com/p/DbWMVdmMHrC/" aria-label="Play the GP Sports Complex video"><img src="img/eg-gp-bb.jpg" alt="Still from a GP Sports Complex video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">GP Sports Complex</span>
+            <p>Guru Basketball Academy: quality of training over hours of training</p>
+          </div>
+        </article>
+        <article class="lp">
+          <a class="lp-img" href="https://www.instagram.com/reel/DJhgnLepG7Y/" aria-label="Play the Tant Bakiza video"><img src="img/eg-bakiza.jpg" alt="Still from a Tant Bakiza kunafa video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+          <div class="lp-body">
+            <span class="label">Tant Bakiza</span>
+            <p>Kunafa with fresh cream and pistachio, filmed as a slow, close-up food reel</p>
+          </div>
+        </article>
+    </div>
+    <p class="fine">Tap any video to watch it here.</p>
+  </div>
+</section>
+
+
+
+<section class="services" id="services">
+  <div class="in">
+    <span class="label">Services</span>
+    <h2>What I can do for your brand</h2>
+    <div class="svc-grid">
+      <div class="svc">
+        <span class="n num">01</span>
+        <h3>Performance marketing</h3>
+        <p>Paid campaigns built around sales and ROAS, from tracking setup to daily optimisation and seasonal scaling.</p>
+        <p class="tools">Meta · Google · Snapchat · TikTok · X · GTM · Conversions API</p>
+        <a href="#aw" class="proof-link">See it in Adventure World →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">02</span>
+        <h3>Store build &amp; CRO</h3>
+        <p>A complete store from zero: theme, catalogue, collections, product pages, SEO, payments and instalments.</p>
+        <p class="tools">Shopify · Salla · Wuilt · Tabby · Tamara</p>
+        <a href="#hc" class="proof-link">See it in House of Care →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">03</span>
+        <h3>Marketplace management</h3>
+        <p>Listings, keywords, pricing, stock and promotions kept accurate and visible on the big Gulf marketplaces.</p>
+        <p class="tools">Amazon.sa · Noon.sa</p>
+      </div>
+      <div class="svc">
+        <span class="n num">04</span>
+        <h3>Social media &amp; brand</h3>
+        <p>Identity, content plan, highlights and account verification, so the profile works like a shop window.</p>
+        <p class="tools">Instagram · Facebook · TikTok · Snapchat</p>
+        <a href="#lx" class="proof-link">See it in Luxuria →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">05</span>
+        <h3>Video &amp; reels</h3>
+        <p>Concepts, scripts and edits for reels that stop the scroll, including AI-generated product videos.</p>
+        <p class="tools">CapCut · Adobe · Higgsfield</p>
+        <a href="#eg" class="proof-link">See it in Local brands →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">06</span>
+        <h3>Influencer &amp; UGC</h3>
+        <p>Creator selection, barter deals and partnership ads that turn creator reach into bookings.</p>
+        <p class="tools">Partnership ads · UGC</p>
+        <a href="#lx" class="proof-link">See it in Luxuria →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">07</span>
+        <h3>Contests &amp; community</h3>
+        <p>Giveaways and campaigns that grow followers and engagement fast, then feed the sales funnel.</p>
+        <p class="tools">Giveaways · Seasonal campaigns</p>
+        <a href="#lx" class="proof-link">See it in Luxuria →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">08</span>
+        <h3>WhatsApp &amp; automation</h3>
+        <p>Click-to-WhatsApp ads, a chatbot that answers leads and order updates, and broadcast campaigns.</p>
+        <p class="tools">WhatsApp Cloud API · Chatbots</p>
+        <a href="#hc" class="proof-link">See it in House of Care →</a>
+      </div>
+      <div class="svc">
+        <span class="n num">09</span>
+        <h3>E-commerce operations</h3>
+        <p>Order processing, shipping, returns and inventory audits that keep the store running day to day.</p>
+        <p class="tools">Aramex · SMSA · J&amp;T</p>
+        <a href="#hc" class="proof-link">See it in House of Care →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="in">
+    <span class="label">What the cases share</span>
+    <h2>How I take a brand from zero to sales</h2>
+    <div class="steps">
+      <div class="step"><h3>Build the base</h3><p>Store, identity, product content and tracking before any spend.</p></div>
+      <div class="step"><h3>Remove payment friction</h3><p>Local gateways plus Tabby and Tamara, which matter most on large orders.</p></div>
+      <div class="step"><h3>Match channel to intent</h3><p>Search where people already look; social and creators where they discover.</p></div>
+      <div class="step"><h3>Make social sell</h3><p>Highlights as a product menu, contests for reach, verification for trust.</p></div>
+      <div class="step"><h3>Scale into the season</h3><p>Concentrate budget where demand peaks and ROAS holds.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="talk">
+  <div class="in">
+    <h2>Let's talk</h2>
+    <p>Open to e-commerce and performance marketing roles in KSA, the UAE or remote.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:eslamelramady2010@gmail.com">eslamelramady2010@gmail.com</a>
+      <a class="btn" href="https://wa.me/201044344356" target="_blank" rel="noopener">WhatsApp +20 104 434 4356</a>
+      <a class="btn" href="https://www.linkedin.com/in/eslamelramady" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <p>Figures are approximate and come from my own records of these accounts. I'm happy to walk through how each one was reached in an interview. Screenshots are of the live store, website and Instagram profiles, captured October 2026.</p>
+  </div>
+</footer>
+
+<div class="vbox" id="vbox" hidden>
+  <div class="vbox-bg" data-close></div>
+  <div class="vbox-panel" role="dialog" aria-modal="true" aria-label="Video">
+    <button class="vbox-x" type="button" data-close aria-label="Close">×</button>
+    <a class="vbox-out" id="vout" href="#" target="_blank" rel="noopener">Open on the original platform ↗</a>
+    <iframe id="vframe" title="Post" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('vbox'), fr=document.getElementById('vframe'), out=document.getElementById('vout'), last=null;
+  var sandboxed=/claudeusercontent|claude\.ai/.test(location.hostname);
+  function embed(h){
+    var m=h.match(/instagram\.com\/(p|reel|reels)\/([A-Za-z0-9_-]+)/);
+    if(m) return 'https://www.instagram.com/'+(m[1]==='p'?'p':'reel')+'/'+m[2]+'/embed/';
+    if(/facebook\.com\//.test(h)) return 'https://www.facebook.com/plugins/video.php?show_text=false&width=380&href='+encodeURIComponent(h.split('?')[0]);
+    return null;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]'); if(!a) return;
+    if(a.id==='vout') return;
+    var u=embed(a.href); if(!u) return;
+    if(sandboxed){ a.target='_blank'; a.rel='noopener'; return; }
+    e.preventDefault(); out.href=a.href; last=a; fr.src=u; box.hidden=false; document.body.style.overflow='hidden';
+    box.querySelector('.vbox-x').focus();
+  });
+  function close(){ box.hidden=true; fr.src='about:blank'; document.body.style.overflow=''; if(last) last.focus(); }
+  box.addEventListener('click',function(e){ if(e.target.hasAttribute('data-close')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!box.hidden) close(); });
+})();
+</script>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  // tag elements for reveal with stagger per group
+  var groups=[
+    ['.proof .in>div','rv'],['.case-top>div','rv rv-l'],['.case-top .lede','rv rv-r'],['.kpi','rv'],['.gallery','rv rv-s'],
+    ['.panel','rv'],['.ledger-head','rv'],['.group','rv'],['.catalog','rv rv-s'],['.cstats>div','rv'],['.creator','rv'],
+    ['.gv-head','rv'],['.gv','rv'],['.devices','rv rv-s'],['.eg-top>div','rv'],['.lp','rv'],['.fine','rv'],
+    ['.services .label, .services h2','rv'],['.svc','rv'],['.approach .label, .approach h2','rv'],['.step','rv'],['.talk .in>*','rv'],['.deal','rv'],['.giveaways','rv']
+  ];
+  groups.forEach(function(g){
+    var els=document.querySelectorAll(g[0]), parentIdx=new Map();
+    els.forEach(function(el){
+      g[1].split(' ').forEach(function(c){el.classList.add(c)});
+      var p=el.parentElement, i=parentIdx.get(p)||0; parentIdx.set(p,i+1);
+      el.style.setProperty('--d',Math.min(i*0.08,0.6)+'s');
+    });
+  });
+  document.querySelectorAll('.bar').forEach(function(b){b.classList.add('rv-bar')});
+  function show(el){el.classList.add('in-view');setTimeout(function(){el.style.setProperty('--d','0s')},1400)}
+  if(reduce||!('IntersectionObserver' in window)){document.querySelectorAll('.rv,.bar').forEach(show);}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.12});
+    document.querySelectorAll('.rv,.bar').forEach(function(el){io.observe(el)});
+  }
+  // count-up numbers
+  function countUp(el){
+    var raw=el.textContent.trim(), m=raw.match(/^([^0-9]*)([0-9]+(?:[.,][0-9]+)?)(.*)$/);
+    if(!m||reduce) return;
+    var pre=m[1], num=parseFloat(m[2].replace(',','')), suf=m[3], dec=(m[2].split('.')[1]||'').length, comma=m[2].indexOf(',')>-1;
+    var t0=null, dur=1400;
+    function f(t){ if(!t0)t0=t; var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3), v=num*e;
+      var str=dec?v.toFixed(dec):Math.round(v).toString(); if(comma) str=Number(str).toLocaleString('en-US');
+      el.textContent=pre+str+suf; if(p<1) requestAnimationFrame(f); else el.textContent=raw; }
+    requestAnimationFrame(f);
+  }
+  var nums=document.querySelectorAll('.proof .num,.kpi .num,.cstats .num,.eg-top .num,.gv-stat .num,.cat-big .num');
+  if('IntersectionObserver' in window){
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(e.target);io2.unobserve(e.target)}})},{threshold:.6});
+    nums.forEach(function(n){io2.observe(n)});
+  }
+  // scroll progress + subtle parallax on hero glow
+  var bar=document.getElementById('progress'), ticking=false;
+  function onScroll(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    bar.style.transform='scaleX('+(max>0?h.scrollTop/max:0)+')'; ticking=false;
+  }
+  addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(onScroll)} },{passive:true});
+  onScroll();
+  // tilt on case-study nav cards and services (pointer devices only)
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.hero .index a,.svc,.lp,.creator').forEach(function(c){
+      c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        c.style.transform='perspective(800px) rotateY('+(x*6)+'deg) rotateX('+(-y*6)+'deg) translateY(-6px)';});
+      c.addEventListener('pointerleave',function(){c.style.transform=''});
+    });
+  }
+})();
+</script>
+
+<button class="snd" id="snd" type="button" aria-pressed="true" aria-label="Sound effects on"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="t">Sound on</span></button>
+<script>
+(function(){
+  var btn=document.getElementById('snd'), on=true, ctx=null, lastHover=0;
+  try{ on=localStorage.getItem('ee-sound')!=='off'; }catch(e){}
+  function unlock(){ if(on) ac(); removeEventListener('pointerdown',unlock,true); removeEventListener('keydown',unlock,true); removeEventListener('touchstart',unlock,true); }
+  addEventListener('pointerdown',unlock,true); addEventListener('keydown',unlock,true); addEventListener('touchstart',unlock,true);
+  function ac(){ if(!ctx){ var C=window.AudioContext||window.webkitAudioContext; if(!C) return null; ctx=new C(); } if(ctx.state==='suspended') ctx.resume(); return ctx; }
+  function tone(f1,f2,dur,type,vol,delay){
+    var c=ac(); if(!c) return; var t=c.currentTime+(delay||0), o=c.createOscillator(), g=c.createGain();
+    o.type=type||'sine'; o.frequency.setValueAtTime(f1,t); if(f2) o.frequency.exponentialRampToValueAtTime(f2,t+dur);
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol||0.05,t+0.008); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g).connect(c.destination); o.start(t); o.stop(t+dur+0.02);
+  }
+  function whoosh(){
+    var c=ac(); if(!c) return; var n=c.sampleRate*0.35, buf=c.createBuffer(1,n,c.sampleRate), d=buf.getChannelData(0);
+    for(var i=0;i<n;i++) d[i]=(Math.random()*2-1)*(1-i/n);
+    var src=c.createBufferSource(), f=c.createBiquadFilter(), g=c.createGain(), t=c.currentTime;
+    src.buffer=buf; f.type='bandpass'; f.Q.value=1.2; f.frequency.setValueAtTime(400,t); f.frequency.exponentialRampToValueAtTime(2400,t+0.3);
+    g.gain.setValueAtTime(0.06,t); g.gain.exponentialRampToValueAtTime(0.0001,t+0.35);
+    src.connect(f).connect(g).connect(c.destination); src.start(t);
+  }
+  var S={
+    hover:function(){ var n=performance.now(); if(n-lastHover<70) return; lastHover=n; tone(1400,1800,0.05,'sine',0.018); },
+    click:function(){ tone(520,880,0.09,'triangle',0.05); },
+    open:function(){ whoosh(); tone(660,990,0.12,'sine',0.03,0.05); },
+    close:function(){ tone(700,350,0.12,'sine',0.035); },
+    reveal:function(){ tone(880,1320,0.08,'sine',0.012); },
+    on:function(){ tone(523,0,0.09,'sine',0.05); tone(659,0,0.09,'sine',0.05,0.08); tone(784,0,0.14,'sine',0.05,0.16); }
+  };
+  window.eeSound=function(k){ if(on&&S[k]) S[k](); };
+  function render(){ btn.setAttribute('aria-pressed',on); btn.setAttribute('aria-label','Sound effects '+(on?'on':'off')); btn.querySelector('.t').textContent=on?'Sound on':'Sound off'; }
+  render();
+  btn.addEventListener('click',function(){ on=!on; try{localStorage.setItem('ee-sound',on?'on':'off')}catch(e){} render(); if(on) S.on(); });
+  var hoverSel='.btn,.index a,.svc,.lp,.creator,.gv,.group,.kpi,.chip,.proof-link,.contact a,.panel,.step,.devices';
+  document.addEventListener('pointerover',function(e){
+    if(e.pointerType!=='mouse') return; var el=e.target.closest(hoverSel); if(!el) return;
+    if(e.relatedTarget&&el.contains(e.relatedTarget)) return; window.eeSound('hover');
+  });
+  document.addEventListener('click',function(e){
+    if(e.target.closest('#snd')) return;
+    var a=e.target.closest('a,button'); if(!a) return;
+    if(a.closest('.vbox-panel')&&a.hasAttribute('data-close')) return;
+    var vid=a.matches('a[href*="instagram.com"],a[href*="facebook.com"]');
+    window.eeSound(vid?'open':'click');
+  },true);
+  document.addEventListener('click',function(e){ if(e.target.closest('[data-close]')) window.eeSound('close'); },true);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!document.getElementById('vbox').hidden) window.eeSound('close'); },true);
+  if('MutationObserver' in window){
+    var last=0; new MutationObserver(function(ms){ ms.forEach(function(m){ if(m.target.classList&&m.target.classList.contains('in-view')&&m.target.matches('.svc,.lp,.creator,.gv,.kpi,.group')){ var n=performance.now(); if(n-last>120){ last=n; window.eeSound('reveal'); } } }); })
+      .observe(document.body,{subtree:true,attributes:true,attributeFilter:['class']});
+  }
+})();
+</script>
+
+</body>
+</html>
