@@ -1033,28 +1033,53 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
   try{ on=localStorage.getItem('ee-sound')!=='off'; }catch(e){}
   function unlock(){ if(on) ac(); removeEventListener('pointerdown',unlock,true); removeEventListener('keydown',unlock,true); removeEventListener('touchstart',unlock,true); }
   addEventListener('pointerdown',unlock,true); addEventListener('keydown',unlock,true); addEventListener('touchstart',unlock,true);
-  function ac(){ if(!ctx){ var C=window.AudioContext||window.webkitAudioContext; if(!C) return null; ctx=new C(); } if(ctx.state==='suspended') ctx.resume(); return ctx; }
-  function tone(f1,f2,dur,type,vol,delay){
-    var c=ac(); if(!c) return; var t=c.currentTime+(delay||0), o=c.createOscillator(), g=c.createGain();
-    o.type=type||'sine'; o.frequency.setValueAtTime(f1,t); if(f2) o.frequency.exponentialRampToValueAtTime(f2,t+dur);
-    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol||0.05,t+0.008); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
-    o.connect(g).connect(c.destination); o.start(t); o.stop(t+dur+0.02);
+  var master=null, wet=null;
+  function ac(){
+    if(!ctx){ var C=window.AudioContext||window.webkitAudioContext; if(!C) return null; ctx=new C();
+      // master chain: soft lowpass -> compressor -> out, plus a short echo send for a little space
+      var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=6500;
+      var comp=ctx.createDynamicsCompressor(); comp.threshold.value=-22; comp.ratio.value=3;
+      master=ctx.createGain(); master.gain.value=0.9;
+      master.connect(lp).connect(comp).connect(ctx.destination);
+      var dl=ctx.createDelay(); dl.delayTime.value=0.13; var fb=ctx.createGain(); fb.gain.value=0.28;
+      var dlp=ctx.createBiquadFilter(); dlp.type='lowpass'; dlp.frequency.value=2800;
+      wet=ctx.createGain(); wet.gain.value=0.22;
+      wet.connect(dl); dl.connect(dlp).connect(fb).connect(dl); dlp.connect(master);
+    }
+    if(ctx.state==='suspended') ctx.resume(); return ctx;
   }
-  function whoosh(){
-    var c=ac(); if(!c) return; var n=c.sampleRate*0.35, buf=c.createBuffer(1,n,c.sampleRate), d=buf.getChannelData(0);
-    for(var i=0;i<n;i++) d[i]=(Math.random()*2-1)*(1-i/n);
+  // pentatonic scale (C major) so every note sounds musical together
+  var SCALE=[523.25,587.33,659.25,783.99,880,1046.5,1174.66,1318.51,1567.98,1760];
+  function note(freq,o){
+    o=o||{}; var c=ac(); if(!c) return; var t=c.currentTime+(o.delay||0), dur=o.dur||0.25, vol=o.vol||0.04;
+    var g=c.createGain(); g.gain.setValueAtTime(0.0001,t);
+    g.gain.exponentialRampToValueAtTime(vol,t+(o.attack||0.006)); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    var f=c.createBiquadFilter(); f.type='lowpass'; f.frequency.setValueAtTime(o.cut||4000,t); f.frequency.exponentialRampToValueAtTime(Math.max(300,(o.cut||4000)/4),t+dur);
+    g.connect(f); f.connect(master); if(o.space!==false) f.connect(wet);
+    // body + soft upper partial = warm, bell-like tone instead of a raw beep
+    [[1,o.type||'sine',1],[2,'sine',0.25],[3.01,'sine',0.08]].forEach(function(p){
+      var osc=c.createOscillator(), pg=c.createGain(); osc.type=p[1]; osc.frequency.setValueAtTime(freq*p[0],t);
+      if(o.glide) osc.frequency.exponentialRampToValueAtTime(freq*p[0]*o.glide,t+dur);
+      pg.gain.value=p[2]; osc.connect(pg).connect(g); osc.start(t); osc.stop(t+dur+0.05);
+    });
+  }
+  function air(up,dur,vol){
+    var c=ac(); if(!c) return; dur=dur||0.4; var n=Math.floor(c.sampleRate*dur), buf=c.createBuffer(1,n,c.sampleRate), d=buf.getChannelData(0);
+    for(var i=0;i<n;i++){ var e=i/n; d[i]=(Math.random()*2-1)*Math.sin(Math.PI*e); }
     var src=c.createBufferSource(), f=c.createBiquadFilter(), g=c.createGain(), t=c.currentTime;
-    src.buffer=buf; f.type='bandpass'; f.Q.value=1.2; f.frequency.setValueAtTime(400,t); f.frequency.exponentialRampToValueAtTime(2400,t+0.3);
-    g.gain.setValueAtTime(0.06,t); g.gain.exponentialRampToValueAtTime(0.0001,t+0.35);
-    src.connect(f).connect(g).connect(c.destination); src.start(t);
+    src.buffer=buf; f.type='bandpass'; f.Q.value=0.9;
+    f.frequency.setValueAtTime(up?500:2600,t); f.frequency.exponentialRampToValueAtTime(up?2600:450,t+dur);
+    g.gain.value=vol||0.05; src.connect(f).connect(g); g.connect(master); g.connect(wet); src.start(t);
   }
+  var revealStep=0;
   var S={
-    hover:function(){ var n=performance.now(); if(n-lastHover<70) return; lastHover=n; tone(1400,1800,0.05,'sine',0.018); },
-    click:function(){ tone(520,880,0.09,'triangle',0.05); },
-    open:function(){ whoosh(); tone(660,990,0.12,'sine',0.03,0.05); },
-    close:function(){ tone(700,350,0.12,'sine',0.035); },
-    reveal:function(){ tone(880,1320,0.08,'sine',0.012); },
-    on:function(){ tone(523,0,0.09,'sine',0.05); tone(659,0,0.09,'sine',0.05,0.08); tone(784,0,0.14,'sine',0.05,0.16); }
+    hover:function(){ var n=performance.now(); if(n-lastHover<90) return; lastHover=n;
+      note(SCALE[5+Math.floor(Math.random()*4)],{dur:0.14,vol:0.012,cut:5000,space:false}); },
+    click:function(){ note(SCALE[2],{dur:0.22,vol:0.045,type:'triangle',cut:3500}); note(SCALE[4],{dur:0.26,vol:0.03,delay:0.045}); },
+    open:function(){ air(true,0.38,0.045); note(SCALE[4],{dur:0.45,vol:0.03,delay:0.12}); note(SCALE[7],{dur:0.5,vol:0.022,delay:0.18}); },
+    close:function(){ air(false,0.28,0.035); note(SCALE[4],{dur:0.3,vol:0.03,glide:0.75}); },
+    reveal:function(){ note(SCALE[revealStep%SCALE.length],{dur:0.35,vol:0.01,cut:3000}); revealStep++; },
+    on:function(){ [0,2,4,5].forEach(function(k,i){ note(SCALE[k],{dur:0.5,vol:0.035,delay:i*0.09}); }); }
   };
   window.eeSound=function(k){ if(on&&S[k]) S[k](); };
   function render(){ btn.setAttribute('aria-pressed',on); btn.setAttribute('aria-label','Sound effects '+(on?'on':'off')); btn.querySelector('.t').textContent=on?'Sound on':'Sound off'; }
