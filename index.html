@@ -389,7 +389,8 @@ section,footer,.proof{position:relative}
 .shot:hover .phone{transform:translateY(-10px);box-shadow:0 0 0 1px rgba(255,255,255,.2),0 40px 70px -30px #000,0 0 60px -10px color-mix(in srgb,var(--tone) 90%,transparent)}
 .shot figcaption b{text-shadow:0 0 10px color-mix(in srgb,var(--tone) 40%,transparent)}
 .gallery{padding:44px 44px 56px;margin:-30px -44px -36px;scrollbar-width:thin;scrollbar-color:rgba(160,170,255,.3) transparent}
-@media (max-width:640px){.gallery{padding:36px 16px 48px;margin:-24px -16px -30px}}
+.gallery{scroll-padding-inline:44px}
+@media (max-width:640px){.gallery{padding:36px 24px 48px;margin:-24px -16px -30px;scroll-padding-inline:24px;gap:18px}.gallery .shot{flex:0 0 62vw;max-width:260px;scroll-snap-align:center}.gallery::after{content:"";flex:0 0 8px}}
 .mobile{background:linear-gradient(150deg,#3a4060,#0a0c16 55%,#2a2f48);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 0 50px -12px rgba(127,231,173,.6)}
 .lid{background:linear-gradient(#1b1e2e,#0d0f1a);box-shadow:0 0 0 1px rgba(255,255,255,.1),0 0 70px -20px rgba(127,231,173,.5)}
 /* talk + footer */
