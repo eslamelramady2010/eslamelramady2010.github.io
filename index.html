@@ -327,7 +327,8 @@ footer .in{padding-block:24px 56px;font-size:13px;color:var(--muted);display:fle
   --eg:#86ccff; --eg-soft:rgba(124,196,255,.12);
   --glow:#8b7cff; color-scheme:dark;
 }
-html{background:#04050d}
+html{background:#04050d;overflow-x:clip}
+body{overflow-x:clip}
 body{background:
   radial-gradient(1200px 700px at 85% -5%,rgba(122,47,212,.28),transparent 60%),
   radial-gradient(900px 600px at -10% 30%,rgba(30,90,200,.18),transparent 60%),
@@ -387,7 +388,8 @@ section,footer,.proof{position:relative}
 .shot:hover img,.shot img{transform:none!important}
 .shot:hover .phone{transform:translateY(-10px);box-shadow:0 0 0 1px rgba(255,255,255,.2),0 40px 70px -30px #000,0 0 60px -10px color-mix(in srgb,var(--tone) 90%,transparent)}
 .shot figcaption b{text-shadow:0 0 10px color-mix(in srgb,var(--tone) 40%,transparent)}
-.gallery{padding:18px 6px 24px}
+.gallery{padding:44px 44px 56px;margin:-30px -44px -36px;scrollbar-width:thin;scrollbar-color:rgba(160,170,255,.3) transparent}
+@media (max-width:640px){.gallery{padding:36px 16px 48px;margin:-24px -16px -30px}}
 .mobile{background:linear-gradient(150deg,#3a4060,#0a0c16 55%,#2a2f48);box-shadow:0 0 0 1px rgba(255,255,255,.14),0 0 50px -12px rgba(127,231,173,.6)}
 .lid{background:linear-gradient(#1b1e2e,#0d0f1a);box-shadow:0 0 0 1px rgba(255,255,255,.1),0 0 70px -20px rgba(127,231,173,.5)}
 /* talk + footer */
