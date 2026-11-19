@@ -402,6 +402,41 @@ footer .in{border-top-color:var(--line)}
 .snd{background:rgba(10,12,26,.7);border-color:rgba(190,170,255,.35);box-shadow:0 0 24px -6px rgba(150,120,255,.7)}
 @media (prefers-reduced-motion:reduce){.svc::before,.lp::before{animation:none}}
 
+
+/* ===== compact layout ===== */
+.hl{color:#ffd54f;text-shadow:0 0 16px rgba(255,213,79,.45)}
+.clients{padding:40px 0 28px;border-bottom:1px solid var(--line);overflow:hidden}
+.clients .in{margin-bottom:18px}
+.lg-row{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);padding:8px 0}
+.lg-track{display:flex;gap:18px;list-style:none;margin:0;padding:0;width:max-content;animation:lg 60s linear infinite}
+.lg-row.rev .lg-track{animation-direction:reverse;animation-duration:68s}
+.lg-row:hover .lg-track{animation-play-state:paused}
+.lg-track li{flex:none}
+.lg-track img{display:block;width:72px;height:72px;border-radius:18px;object-fit:cover;filter:grayscale(.85) brightness(.9);opacity:.72;box-shadow:0 0 0 1px rgba(255,255,255,.1);transition:filter .35s,opacity .35s,transform .35s,box-shadow .35s}
+.lg-track img:hover{filter:none;opacity:1;transform:translateY(-4px) scale(1.08);box-shadow:0 0 0 1px rgba(255,255,255,.3),0 0 26px -4px rgba(170,150,255,.8)}
+@keyframes lg{to{transform:translateX(-50%)}}
+@media (max-width:640px){.lg-track img{width:60px;height:60px;border-radius:15px}.lg-track{gap:14px}}
+/* tighter cases */
+.case .in{padding-block:56px 40px}
+.case .lede{font-size:16px}
+.more-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;min-height:46px;padding:10px 20px;border-radius:999px;border:1px solid color-mix(in srgb,var(--tone) 55%,transparent);background:rgba(14,16,34,.6);color:var(--ink);font:600 15px var(--body);cursor:pointer;box-shadow:0 0 22px -8px var(--tone);transition:transform .25s,box-shadow .25s,background .25s}
+.more-btn:hover{transform:translateY(-2px);box-shadow:0 0 30px -4px var(--tone);background:color-mix(in srgb,var(--tone) 14%,rgba(14,16,34,.6))}
+.more-btn .ic{font-size:18px;line-height:1;color:var(--tone);transition:transform .3s}
+.more-btn[aria-expanded="true"] .ic{transform:rotate(45deg)}
+.more{display:flex;flex-direction:column;gap:inherit}
+.more:not([hidden]){animation:fadeUp .5s cubic-bezier(.2,.7,.2,1) both}
+.more[hidden]{display:none}
+/* compact services */
+.svc p:not(.tools){display:none}
+.svc{padding:18px;gap:6px}
+.svc .proof-link{padding-top:8px;font-size:13.5px}
+.services .in{padding-block:56px 24px}
+/* video carousel */
+.lp-grid.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:30px 30px 40px;margin:-24px -30px -30px;scroll-padding-inline:30px;scrollbar-width:thin;scrollbar-color:rgba(160,170,255,.3) transparent}
+.lp-grid.carousel .lp{flex:0 0 220px;scroll-snap-align:start}
+@media (max-width:640px){.lp-grid.carousel{padding:26px 16px 36px;margin:-20px -16px -26px;scroll-padding-inline:16px}.lp-grid.carousel .lp{flex-basis:62vw;max-width:240px}}
+.swipe{font-size:13px;color:var(--muted)}
+
 /* ===== motion ===== */
 .progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#ffcf33,#b88cff,#7fd6a0,#7cb8ec);z-index:60;pointer-events:none}
 html.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
@@ -483,7 +518,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
   <div class="in">
     <span class="label">Portfolio · GCC e-commerce &amp; performance marketing</span>
     <h1><span class="ln">Eslam</span><span class="ln">Elramady</span></h1>
-    <p class="pitch"><b>Performance Marketing &amp; E-Commerce Specialist.</b> I build a brand's digital sales channel from zero (store, social, paid media, payments) and scale it on what the numbers say.</p>
+    <p class="pitch"><b>Performance Marketing &amp; E-Commerce Specialist.</b> I take brands from zero to sales: <b class="hl">≈ SAR 1.5M in six months</b> for Adventure World, and a <b class="hl">200-car fleet fully booked</b> in peak season for Luxuria.</p>
     <div class="contact">
       <span>Alexandria, Egypt · open to KSA / UAE</span>
       <span class="num">+20 104 434 4356</span>
@@ -513,6 +548,13 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
   </div>
 </section>
 
+<section class="clients" aria-label="Brands I've worked with">
+  <div class="in"><span class="label">Brands I've worked with · KSA · UAE · Jordan · Egypt</span></div>
+  <div class="lg-row"><ul class="lg-track"><li><img src="img/logos/adventureworld.jpg" alt="Adventure World" loading="lazy" width="72" height="72"></li><li><img src="img/logos/luxuria.jpg" alt="Luxuria Car Rental" loading="lazy" width="72" height="72"></li><li><img src="img/logos/snapchat.jpg" alt="Snapchat" loading="lazy" width="72" height="72"></li><li><img src="img/logos/gp.jpg" alt="GP Sports Complex" loading="lazy" width="72" height="72"></li><li><img src="img/logos/medal.jpg" alt="Medal Swimming Academy" loading="lazy" width="72" height="72"></li><li><img src="img/logos/ak.jpg" alt="AK Swimming Team" loading="lazy" width="72" height="72"></li><li><img src="img/logos/nawa.jpg" alt="Nawa Natural" loading="lazy" width="72" height="72"></li><li><img src="img/logos/classy.jpg" alt="Classy Egypt Tours" loading="lazy" width="72" height="72"></li><li><img src="img/logos/borsippa.jpg" alt="Borsippa Tourism" loading="lazy" width="72" height="72"></li><li><img src="img/logos/misso.jpg" alt="Misso Lounge" loading="lazy" width="72" height="72"></li><li><img src="img/logos/adventureworld.jpg" aria-hidden="true" alt="Adventure World" loading="lazy" width="72" height="72"></li><li><img src="img/logos/luxuria.jpg" aria-hidden="true" alt="Luxuria Car Rental" loading="lazy" width="72" height="72"></li><li><img src="img/logos/snapchat.jpg" aria-hidden="true" alt="Snapchat" loading="lazy" width="72" height="72"></li><li><img src="img/logos/gp.jpg" aria-hidden="true" alt="GP Sports Complex" loading="lazy" width="72" height="72"></li><li><img src="img/logos/medal.jpg" aria-hidden="true" alt="Medal Swimming Academy" loading="lazy" width="72" height="72"></li><li><img src="img/logos/ak.jpg" aria-hidden="true" alt="AK Swimming Team" loading="lazy" width="72" height="72"></li><li><img src="img/logos/nawa.jpg" aria-hidden="true" alt="Nawa Natural" loading="lazy" width="72" height="72"></li><li><img src="img/logos/classy.jpg" aria-hidden="true" alt="Classy Egypt Tours" loading="lazy" width="72" height="72"></li><li><img src="img/logos/borsippa.jpg" aria-hidden="true" alt="Borsippa Tourism" loading="lazy" width="72" height="72"></li><li><img src="img/logos/misso.jpg" aria-hidden="true" alt="Misso Lounge" loading="lazy" width="72" height="72"></li><li><img src="img/logos/adventureworld.jpg" aria-hidden="true" alt="Adventure World" loading="lazy" width="72" height="72"></li><li><img src="img/logos/luxuria.jpg" aria-hidden="true" alt="Luxuria Car Rental" loading="lazy" width="72" height="72"></li><li><img src="img/logos/snapchat.jpg" aria-hidden="true" alt="Snapchat" loading="lazy" width="72" height="72"></li><li><img src="img/logos/gp.jpg" aria-hidden="true" alt="GP Sports Complex" loading="lazy" width="72" height="72"></li><li><img src="img/logos/medal.jpg" aria-hidden="true" alt="Medal Swimming Academy" loading="lazy" width="72" height="72"></li><li><img src="img/logos/ak.jpg" aria-hidden="true" alt="AK Swimming Team" loading="lazy" width="72" height="72"></li><li><img src="img/logos/nawa.jpg" aria-hidden="true" alt="Nawa Natural" loading="lazy" width="72" height="72"></li><li><img src="img/logos/classy.jpg" aria-hidden="true" alt="Classy Egypt Tours" loading="lazy" width="72" height="72"></li><li><img src="img/logos/borsippa.jpg" aria-hidden="true" alt="Borsippa Tourism" loading="lazy" width="72" height="72"></li><li><img src="img/logos/misso.jpg" aria-hidden="true" alt="Misso Lounge" loading="lazy" width="72" height="72"></li><li><img src="img/logos/adventureworld.jpg" aria-hidden="true" alt="Adventure World" loading="lazy" width="72" height="72"></li><li><img src="img/logos/luxuria.jpg" aria-hidden="true" alt="Luxuria Car Rental" loading="lazy" width="72" height="72"></li><li><img src="img/logos/snapchat.jpg" aria-hidden="true" alt="Snapchat" loading="lazy" width="72" height="72"></li><li><img src="img/logos/gp.jpg" aria-hidden="true" alt="GP Sports Complex" loading="lazy" width="72" height="72"></li><li><img src="img/logos/medal.jpg" aria-hidden="true" alt="Medal Swimming Academy" loading="lazy" width="72" height="72"></li><li><img src="img/logos/ak.jpg" aria-hidden="true" alt="AK Swimming Team" loading="lazy" width="72" height="72"></li><li><img src="img/logos/nawa.jpg" aria-hidden="true" alt="Nawa Natural" loading="lazy" width="72" height="72"></li><li><img src="img/logos/classy.jpg" aria-hidden="true" alt="Classy Egypt Tours" loading="lazy" width="72" height="72"></li><li><img src="img/logos/borsippa.jpg" aria-hidden="true" alt="Borsippa Tourism" loading="lazy" width="72" height="72"></li><li><img src="img/logos/misso.jpg" aria-hidden="true" alt="Misso Lounge" loading="lazy" width="72" height="72"></li></ul></div>
+  <div class="lg-row rev"><ul class="lg-track"><li><img src="img/logos/ats.jpg" alt="ATS" loading="lazy" width="72" height="72"></li><li><img src="img/logos/alsun.jpg" alt="ALSUN Bookkeeping" loading="lazy" width="72" height="72"></li><li><img src="img/logos/diamond.jpg" alt="The Diamond Market" loading="lazy" width="72" height="72"></li><li><img src="img/logos/eco.jpg" alt="ECO Properties" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline-trade.jpg" alt="Advanced Line Trading" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline.jpg" alt="Advanced Line" loading="lazy" width="72" height="72"></li><li><img src="img/logos/bakiza.jpg" alt="Tant Bakiza" loading="lazy" width="72" height="72"></li><li><img src="img/logos/delawa.jpg" alt="Delawa Desserts" loading="lazy" width="72" height="72"></li><li><img src="img/logos/sunflowers.jpg" alt="Sun Flowers" loading="lazy" width="72" height="72"></li><li><img src="img/logos/jamal.jpg" alt="Jamal Adv. &amp; Dec." loading="lazy" width="72" height="72"></li><li><img src="img/logos/ats.jpg" aria-hidden="true" alt="ATS" loading="lazy" width="72" height="72"></li><li><img src="img/logos/alsun.jpg" aria-hidden="true" alt="ALSUN Bookkeeping" loading="lazy" width="72" height="72"></li><li><img src="img/logos/diamond.jpg" aria-hidden="true" alt="The Diamond Market" loading="lazy" width="72" height="72"></li><li><img src="img/logos/eco.jpg" aria-hidden="true" alt="ECO Properties" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline-trade.jpg" aria-hidden="true" alt="Advanced Line Trading" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline.jpg" aria-hidden="true" alt="Advanced Line" loading="lazy" width="72" height="72"></li><li><img src="img/logos/bakiza.jpg" aria-hidden="true" alt="Tant Bakiza" loading="lazy" width="72" height="72"></li><li><img src="img/logos/delawa.jpg" aria-hidden="true" alt="Delawa Desserts" loading="lazy" width="72" height="72"></li><li><img src="img/logos/sunflowers.jpg" aria-hidden="true" alt="Sun Flowers" loading="lazy" width="72" height="72"></li><li><img src="img/logos/jamal.jpg" aria-hidden="true" alt="Jamal Adv. &amp; Dec." loading="lazy" width="72" height="72"></li><li><img src="img/logos/ats.jpg" aria-hidden="true" alt="ATS" loading="lazy" width="72" height="72"></li><li><img src="img/logos/alsun.jpg" aria-hidden="true" alt="ALSUN Bookkeeping" loading="lazy" width="72" height="72"></li><li><img src="img/logos/diamond.jpg" aria-hidden="true" alt="The Diamond Market" loading="lazy" width="72" height="72"></li><li><img src="img/logos/eco.jpg" aria-hidden="true" alt="ECO Properties" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline-trade.jpg" aria-hidden="true" alt="Advanced Line Trading" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline.jpg" aria-hidden="true" alt="Advanced Line" loading="lazy" width="72" height="72"></li><li><img src="img/logos/bakiza.jpg" aria-hidden="true" alt="Tant Bakiza" loading="lazy" width="72" height="72"></li><li><img src="img/logos/delawa.jpg" aria-hidden="true" alt="Delawa Desserts" loading="lazy" width="72" height="72"></li><li><img src="img/logos/sunflowers.jpg" aria-hidden="true" alt="Sun Flowers" loading="lazy" width="72" height="72"></li><li><img src="img/logos/jamal.jpg" aria-hidden="true" alt="Jamal Adv. &amp; Dec." loading="lazy" width="72" height="72"></li><li><img src="img/logos/ats.jpg" aria-hidden="true" alt="ATS" loading="lazy" width="72" height="72"></li><li><img src="img/logos/alsun.jpg" aria-hidden="true" alt="ALSUN Bookkeeping" loading="lazy" width="72" height="72"></li><li><img src="img/logos/diamond.jpg" aria-hidden="true" alt="The Diamond Market" loading="lazy" width="72" height="72"></li><li><img src="img/logos/eco.jpg" aria-hidden="true" alt="ECO Properties" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline-trade.jpg" aria-hidden="true" alt="Advanced Line Trading" loading="lazy" width="72" height="72"></li><li><img src="img/logos/advancedline.jpg" aria-hidden="true" alt="Advanced Line" loading="lazy" width="72" height="72"></li><li><img src="img/logos/bakiza.jpg" aria-hidden="true" alt="Tant Bakiza" loading="lazy" width="72" height="72"></li><li><img src="img/logos/delawa.jpg" aria-hidden="true" alt="Delawa Desserts" loading="lazy" width="72" height="72"></li><li><img src="img/logos/sunflowers.jpg" aria-hidden="true" alt="Sun Flowers" loading="lazy" width="72" height="72"></li><li><img src="img/logos/jamal.jpg" aria-hidden="true" alt="Jamal Adv. &amp; Dec." loading="lazy" width="72" height="72"></li></ul></div>
+</section>
+
+
 
 <!-- CASE 01 -->
 <section class="case" id="aw">
@@ -534,6 +576,15 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
     </div>
 
 
+
+    <div class="gallery" aria-label="Adventure World screenshots">
+      <figure class="shot"><div class="phone"><img src="img/aw-store.jpg" alt="Adventure World online store home page on mobile" loading="lazy"></div><figcaption><b>Online store</b>Theme, layout and bilingual home page</figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/aw-products.jpg" alt="Adventure World category page with hospitality carts and daily rental prices" loading="lazy"></div><figcaption><b>Product listings</b>Own photography, daily rental pricing, WhatsApp ordering</figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="img/aw-instagram.jpg" alt="Adventure World verified Instagram profile with 17.9K followers" loading="lazy"></div><figcaption><b>Instagram</b>Verified account, 17.9K followers, branded highlights</figcaption></figure>
+    </div>
+
+    <button class="more-btn" type="button" aria-expanded="false" aria-controls="aw-more"><span class="t">View full case</span><span class="ic" aria-hidden="true">＋</span></button>
+    <div class="more" id="aw-more" hidden>
     <div class="catalog">
       <div class="cat-big"><span class="num">200+</span><small>games &amp; products listed, photographed and written by me</small></div>
       <div class="cat-list">
@@ -541,12 +592,6 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
         <ul><li>Bouncy castles &amp; inflatables</li><li>Electric trains</li><li>Hospitality carts</li><li>Full event setups</li></ul>
         <p>Each listing built for search and checkout: categories, SEO copy, product photos and Tabby / Tamara instalments.</p>
       </div>
-    </div>
-
-    <div class="gallery" aria-label="Adventure World screenshots">
-      <figure class="shot"><div class="phone"><img src="img/aw-store.jpg" alt="Adventure World online store home page on mobile" loading="lazy"></div><figcaption><b>Online store</b>Theme, layout and bilingual home page</figcaption></figure>
-      <figure class="shot"><div class="phone"><img src="img/aw-products.jpg" alt="Adventure World category page with hospitality carts and daily rental prices" loading="lazy"></div><figcaption><b>Product listings</b>Own photography, daily rental pricing, WhatsApp ordering</figcaption></figure>
-      <figure class="shot"><div class="phone"><img src="img/aw-instagram.jpg" alt="Adventure World verified Instagram profile with 17.9K followers" loading="lazy"></div><figcaption><b>Instagram</b>Verified account, 17.9K followers, branded highlights</figcaption></figure>
     </div>
 
     <div class="duo">
@@ -611,6 +656,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
         <li>Tracked sales and ROAS by channel to decide where the next riyal went.</li>
       </ul></div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -637,6 +683,9 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
       <figure class="shot"><div class="phone"><img src="img/lx-instagram.jpg" alt="Luxuria verified Instagram profile with 29.6K followers and car category highlights" loading="lazy"></div><figcaption><b>Instagram</b>Verified, 29.6K followers, highlights as a car menu</figcaption></figure>
       <figure class="shot"><div class="phone"><img src="img/lx-site.jpg" alt="Luxuria website listing a Land Rover with daily, weekly and monthly prices" loading="lazy"></div><figcaption><b>Booking site</b>Daily, weekly and monthly rates per car</figcaption></figure>
     </div>
+
+    <button class="more-btn" type="button" aria-expanded="false" aria-controls="lx-more"><span class="t">View full case</span><span class="ic" aria-hidden="true">＋</span></button>
+    <div class="more" id="lx-more" hidden>
 
     <div class="panel">
       <span class="label">The creator deal I structured</span>
@@ -777,6 +826,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
         <li>Kept the fleet full in peak seasons, with mid-range cars renting at about AED 3,000 a week.</li>
       </ul></div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -809,6 +859,9 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
       <figcaption>houseofcarejo.com, Arabic right-to-left storefront on Shopify</figcaption>
     </figure>
 
+    <button class="more-btn" type="button" aria-expanded="false" aria-controls="hc-more"><span class="t">View full case</span><span class="ic" aria-hidden="true">＋</span></button>
+    <div class="more" id="hc-more" hidden>
+
     <div class="ledger-head"><h3>What I executed</h3><span class="label">Store, data, conversion, launch</span></div>
     <div class="ledger">
       <div class="group"><h3>Store build</h3><ul>
@@ -832,6 +885,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
       </ul></div>
     </div>
     <p class="fine">The store has just launched, so there are no sales figures to show yet. This case is about the build.</p>
+    </div>
   </div>
 </section>
 
@@ -851,7 +905,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
       <div><span class="num">604K</span><small>views on the Medal sea-training reel, with 6.2K likes and 3.1K comments</small></div>
       <div><span class="num">5</span><small>local brands: fashion, food, swimming, multi-sport and a retail destination</small></div>
     </div>
-    <div class="lp-grid">
+    <div class="lp-grid carousel">
         <article class="lp">
           <a class="lp-img" href="https://www.facebook.com/reel/2914859412215007" aria-label="Play the Moi et Moi video"><img src="img/eg-moi.jpg" alt="Still from a Moi et Moi video" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
           <div class="lp-body">
@@ -909,7 +963,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
           </div>
         </article>
     </div>
-    <p class="fine">Tap any video to watch it here.</p>
+    <p class="fine">Swipe for more · tap any video to watch it here.</p>
   </div>
 </section>
 
@@ -986,19 +1040,7 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
   </div>
 </section>
 
-<section class="approach">
-  <div class="in">
-    <span class="label">What the cases share</span>
-    <h2>How I take a brand from zero to sales</h2>
-    <div class="steps">
-      <div class="step"><h3>Build the base</h3><p>Store, identity, product content and tracking before any spend.</p></div>
-      <div class="step"><h3>Remove payment friction</h3><p>Local gateways plus Tabby and Tamara, which matter most on large orders.</p></div>
-      <div class="step"><h3>Match channel to intent</h3><p>Search where people already look; social and creators where they discover.</p></div>
-      <div class="step"><h3>Make social sell</h3><p>Highlights as a product menu, contests for reach, verification for trust.</p></div>
-      <div class="step"><h3>Scale into the season</h3><p>Concentrate budget where demand peaks and ROAS holds.</p></div>
-    </div>
-  </div>
-</section>
+
 
 <section class="talk">
   <div class="in">
@@ -1227,5 +1269,18 @@ html.js .in-view .bar,html.js .bar.in-view{transform:none}
 })();
 </script>
 
+
+<script>
+document.querySelectorAll('.more-btn').forEach(function(b){
+  var box=document.getElementById(b.getAttribute('aria-controls'));
+  b.addEventListener('click',function(){
+    var open=b.getAttribute('aria-expanded')!=='true';
+    b.setAttribute('aria-expanded',open); box.hidden=!open;
+    b.querySelector('.t').textContent=open?'Hide details':'View full case';
+    if(open){ box.querySelectorAll('.rv').forEach(function(el){el.classList.add('in-view')}); }
+    else { b.closest('.case').scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+</script>
 </body>
 </html>
